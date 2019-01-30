@@ -13,58 +13,71 @@ body {
 
 .Buttons{
   position: fixed;
-  top: 10%;
+  top: 8%;
   left: 86%; 
-
 }
+
 #b_change{
-  font-family: 'Rancho', cursive;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 25px; 
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  float: left;
+    font-family: 'Rancho', cursive;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: left;
 }
 
+.signup{
+    position: fixed;
+    width: 550px;
+    height: 520px;
+    top: 20%;
+    left: 54%;
+    margin-top: -30px;
+    margin-left: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1); 
+}
 .tab{
-  position: fixed;
-  width: 550px;
-  height: 350px;
-  top: 30%;
-  left: 54%;
-  margin-top: -30px;
-  margin-left: 30px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .1); 
+    position: fixed;
+    width: 550px;
+    height: 350px;
+    top: 30%;
+    left: 54%;
+    margin-top: -30px;
+    margin-left: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1); 
 }
 form {
-  margin: 110px;
-  margin-top: 30px;
-}
-label {
-  color: rgb(250, 250, 250);
-  display: inline-block;
-  margin-left: 30px;
-  padding-top: 20px;
-  font-size: 24px;
+    margin: 110px;
+    margin-top: 0px;
 }
 
-input {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 12px;
-  outline: none;
-  margin-right: 4px;
+label{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 8px;
+    font-size: 24px;
 }
+  
+input {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12px;
+    outline: none;
+    margin-right: 4px;
+}
+
 input[type=text],
 input[type=password] {
     padding-left: 10px;
     margin: 10px;
-    margin-top: 12px;
+    margin-top: -4px;
     margin-left: 18px;
     width: 290px;
     height: 35px;
 }
+
 #lower {
   margin-top: 4px;
 }
@@ -73,11 +86,10 @@ input[type=checkbox] {
   margin-left: -10px;
   margin-top: 10px;
 }
-
 button[type=submit] {
   float: right;
-  margin-right: -12px;
-  margin-top: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
   width: 100px;
   height: 30px;
 }
