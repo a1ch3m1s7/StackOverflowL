@@ -81,7 +81,11 @@ input[type=password] {
 #lower {
   margin-top: 4px;
 }
-
+#reset{
+    float: right;
+    margin-right: 26px;
+    -webkit-text-fill-color: aliceblue; 
+}
 input[type=checkbox] {
   margin-left: -10px;
   margin-top: 10px;
