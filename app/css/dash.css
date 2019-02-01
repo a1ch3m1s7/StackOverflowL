@@ -1,0 +1,220 @@
+/* CSS Variables */
+:root {
+  --primary: #ddd;
+  --dark: rgb(51, 51, 51);
+  --l-blue: rgb(121, 174, 204);
+  --light: #fff;
+  --grey:rgb(199, 198, 198);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Rancho', cursive;
+  color: var(--dark);
+}
+body {
+  background: rgb(177, 174, 174);
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+.Logout{
+    position: fixed;
+    top: 2%;
+    left: 92.6%; 
+}
+#logout{
+  font-family: 'Rancho', cursive;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 18px; 
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h4{
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+
+}
+/*buttons properties*/
+.btn {
+  background: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+/*DropDown*/
+.dropbtn01,
+.dropdown{
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  
+}
+
+.dropdown:hover .dropbtn .dropbtn01{
+  background: var(--l-blue);
+  color: var(--light);
+}
+
+.dropbtn01{
+  overflow: hidden;
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  border: none;
+  padding: 0.9rem 5.0rem;
+  text-align: center;
+  font-family: 'Rancho', cursive;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow);
+}
+.dropbtn{
+  overflow: hidden;
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  border: none;
+  padding: 0.9rem 5.0rem;
+  text-align: center;
+  font-family: 'Rancho', cursive;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.0rem;
+  box-shadow: var(--shadow);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover  {
+  background-color: #ddd;
+  
+}
+.dropdown:hover  .dropdown-content{
+  display: block;
+}
+/* Portfolio */
+.portfolio {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.portfolio img {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+
+/* Navigation */
+.main-nav ul {
+  display: grid;
+  grid-gap: 4px;
+  padding: 0px;
+  list-style: none;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}
+.main-nav a:hover {
+  background: var(--l-blue);
+  color: var(--light);
+  
+}
+
+/* Top Container */
+.top-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';
+}
+/* Showcase */
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url("../assets/dp.png");
+  background-size: cover;
+  background-position: none;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+
+/* Top Box */
+.top-box {
+  background: var(--grey);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+.top-box-b{
+  background-size: cover;
+  -webkit-text-fill-color: black;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  background: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+}

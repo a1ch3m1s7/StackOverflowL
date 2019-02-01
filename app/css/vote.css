@@ -11,7 +11,11 @@ body {
     top: 8%;
     left: 40%; 
   }
-
+p{
+  margin-top: -2px;
+  font-size: 1.2rem;
+  margin-left: 90px;
+}
   .b_change{
     font-family: 'Rancho', cursive;
     border: none;
@@ -39,11 +43,11 @@ body {
     margin-left: 150px;
     padding-top: 8px;
     font-size: 30px;
-}
+  }
   
   h1 {
     text-align: center;  
-    font-size: 60px;
+    font-size: 40px;
     font-family: 'Rancho', cursive;
   }
   
@@ -66,16 +70,18 @@ body {
   }
   
   button {
-    background-color: #4CAF50;
-    color: #ffffff;
+    font-family: 'Rancho', cursive;
     border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer;
-  }
-  
+    padding: 8px 20px;
+    border-radius: 25px; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: left;
+}
+
   button:hover {
+    color: rgb(116, 113, 113);
     opacity: 0.8;
   }
   
@@ -103,3 +109,46 @@ body {
   .step.finish {
     background-color: #4CAF50;
   }
+  .w_r{
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12px;
+    outline: none;
+    margin-right: 4px;
+  }
+  input[type=file]{
+    padding-left: 100px;
+    margin: 10px;
+    margin-top: -4px;
+    margin-left: 38px;
+    width: 200px;
+    height: 35px;
+  }
+  input[type=text] {
+    padding-left: 10px;
+    margin: 10px;
+    margin-top: -4px;
+    margin-left: 90px;
+    width: 290px;
+    height: 35px;
+  }
+
+/*button properties*/
+.no-stylist{
+  font-family: 'Rancho', cursive;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px; 
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  float: left;
+}
+button[type=submit] {
+  float: right;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  margin-top: 12px;
+  width: 100px;
+  height: 40px;
+}
+  
