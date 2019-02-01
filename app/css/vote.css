@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    background: linear-gradient(to right , #66DAC7 50%, #2E4158 50%);
+    font-family: 'Rancho', cursive;
+}
+  .Buttons{
+    position: fixed;
+    top: 8%;
+    left: 40%; 
+  }
+
+  .b_change{
+    font-family: 'Rancho', cursive;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px; 
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    float: left;
+}
+  #regForm {
+    position: fixed;
+    width: 550px;
+    height: 420px;
+    top: 20%;
+    left: 30%;
+    margin-top: -20px;
+    margin-left: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1); 
+  }
+
+  label{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    margin-left: 150px;
+    padding-top: 8px;
+    font-size: 30px;
+}
+  
+  h1 {
+    text-align: center;  
+    font-size: 60px;
+    font-family: 'Rancho', cursive;
+  }
+  
+  input {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    padding-left: 10px;
+    font-size: 12px;
+    outline: none;
+    margin-top: -2px;
+    margin-left: 80px;
+    width: 350px;
+    height: 35px;
+  }
+  
+  /* Mark input boxes that gets an error on validation: */
+  
+  /* Hide all steps by default: */
+  .tab1 {
+    display: none;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #prevBtn {
+    background-color: rgb(151, 175, 171) ;
+  }
+  
+  /* Make circles that indicate the steps of the form: */
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #4CAF50;
+  }
