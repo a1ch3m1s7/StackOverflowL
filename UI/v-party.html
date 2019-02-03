@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+<style>
+        :root {
+        --primary: #ddd;
+        --dark: rgb(51, 51, 51);
+        --l-blue: rgb(121, 174, 204);
+        --light: #fff;
+        --grey:rgb(199, 198, 198);
+        --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+        }
+        html {
+        box-sizing: border-box;
+        font-family: 'Rancho', cursive;
+        color: var(--dark);
+        }
+
+        *{
+        box-sizing: border-box;
+        }
+        .signup{
+            position: absolute;
+            width: 1050px;
+            height: 200px;
+            top: 20%;
+            left: 12%;
+            margin-top: 20px;
+            margin-right: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1); 
+        }
+        body {
+            background: rgb(177, 174, 174);
+            font-family: 'Rancho', cursive;
+        }
+        #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        /* Navigation */
+        .main-nav ul {
+        display: grid;
+        grid-gap: 4px;
+        padding: 0px;
+        list-style: none;
+        grid-template-columns: repeat(5, 1fr);
+        }
+
+        /*DropDown*/
+        .dropbtn01,
+        .dropdown{
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+        }
+        .dropdown:hover .dropbtn .dropbtn01{
+        background: var(--l-blue);
+        color: var(--light);
+        }
+        .dropbtn01{
+        overflow: hidden;
+        background: var(--primary);
+        display: block;
+        text-decoration: none;
+        border: none;
+        padding: 0.9rem 5.0rem;
+        text-align: center;
+        font-family: 'Rancho', cursive;
+        color: var(--dark);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        box-shadow: var(--shadow);
+        }
+        .dropbtn{
+        overflow: hidden;
+        background: var(--primary);
+        display: block;
+        text-decoration: none;
+        border: none;
+        padding: 0.9rem 5.0rem;
+        text-align: center;
+        font-family: 'Rancho', cursive;
+        color: var(--dark);
+        text-transform: uppercase;
+        font-size: 1.0rem;
+        box-shadow: var(--shadow);
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+        .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        }
+
+        .dropdown-content a:hover  {
+        background-color: #ddd;
+        }
+
+        .dropdown:hover  .dropdown-content{
+        display: block;
+        }
+
+        .main-nav a {
+        background: var(--primary);
+        display: block;
+        text-decoration: none;
+        padding: 0.8rem;
+        text-align: center;
+        color: var(--dark);
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow);
+        }
+
+        .main-nav a:hover {
+        background: var(--l-blue);
+        color: var(--light);
+        }
+
+
+        
+
+        /* Top Box */
+        .top-box {
+        background: var(--grey);
+        display: fixed;
+        align-items: center;
+        justify-items: center;
+        box-shadow: var(--shadow);
+        padding: 0.5rem;
+        min-height: 200px;
+        }
+        .top-box-b{
+        background-size: cover;
+       
+        -webkit-text-fill-color: black;
+        }
+
+        #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        font-family: 'Rancho', cursive;
+        font-size: 1.4rem;
+        }
+
+        /*table properties*/
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+        padding-top: 100px;
+        padding-bottom: 30px;
+        text-align: left;
+        font-family: 'Rancho', cursive;
+        font-size: 1.8rem;
+        background-color: rgb(178, 211, 179);
+        color: white;
+        }
+        
+        /* Showcase */
+        .showcase {
+        grid-area: showcase;
+        min-height: 400px;
+        background: url("../assets/dp.png");
+        background-size: cover;
+        background-position: none;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        box-shadow: var(--shadow);
+        }
+        .showcase h1 {
+        font-size: 4rem;
+        margin-bottom: 0;
+        color: var(--light);
+        }
+        .showcase p {
+        font-size: 1.3rem;
+        margin-top: 0;
+        color: var(--light);
+        }
+        /* Top Container */
+        .top-container {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-areas:
+            'showcase showcase top-box-a'
+            'showcase showcase top-box-b';
+        }
+</style>
+</head>
+<body>
+    <nav class="main-nav">
+    <ul>
+      <li>
+          <div class="dropdown">
+            <button class="dropbtn01" onclick="myFunction()">Create Party</button>
+            <div class="dropdown-content">
+                <a href="Politics/c_party.html">Create Party</a>
+                <a href="#">Edit Party</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#">Delete party</a>
+      </li>
+      <li>
+        <a href="vote_f.html">Vote now</a>
+      </li>
+      <li>
+        <a href="#">Election Tally</a>
+      </li>
+      <li>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Settings</button>
+        <div class="dropdown-content">
+            <a href="#">Account settings</a>
+            <a href="#">Positions</a>
+            <a href="aspirant.html">Register Aspirant</a>
+            <a href="petition.html">Petitition Form</a>
+          </div>
+      </div>
+      </li>
+    </ul>
+  </nav>
+
+<section class="top-container">
+    <header class="showcase">
+            <table id="customers">
+                    <tr>
+                        <th>Party Name</th>
+                        <th>Headquaters</th>
+                        <th>Slogan</th>
+                    </tr>
+                    <tr>
+                        <td>Democratic Party of Kenya</td>
+                        <td>Gitanga Road,Lavington</td>
+                        <td>Unity and Peace</td>
+                    </tr>
+                    <tr>
+                        <td>Kenya African National Union</td>
+                        <td>Chania Avenue,Kilimani</td>
+                        <td>Kenyan nationalism Conservatism</td>
+                    </tr>
+                    <tr>
+                        <td>Wiper Democratic Movement</td>
+                        <td>Chungwa House, Othaya Road</td>
+                        <td>Social Democracy.</td>
+                    </tr>
+                    <tr>
+                        <td>Party of National Union</td>
+                        <td>Roland Mendel</td>
+                        <td>Kazi iendelee</td>
+                    </tr>
+                    <tr>
+                        <td>National rainbow coalition</td>
+                        <td>Woodland Roadoff,Lenana Road</td>
+                        <td>One Kenya, One nation, One people</td>
+                    </tr>
+                </table>
+        
+    </header>
+    <div class="top-box top-box-a">
+        <h4>View political leaders</h4>
+        <p> View the political leaders available</p>
+        <a href="" class="btn">Learn more</a>
+    </div>
+    <!--
+    <div class = "signup">
+    
+    </div>
+-->
+</section>
+</body>
+</html>
