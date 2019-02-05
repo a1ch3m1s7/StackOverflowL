@@ -19,3 +19,9 @@ class PartyModels():
 
     def get_all_parties(self):
         return self.db
+
+    def get_party_by_Id(self, party_id):
+       if self.db:
+           for party in self.db:
+               if party.get('party_id') == party_id:
+                   return party
