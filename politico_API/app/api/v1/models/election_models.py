@@ -17,3 +17,5 @@ class PartyModels():
         self.db.append(party)
         return party
 
+    def get_all_parties(self):
+        return self.db

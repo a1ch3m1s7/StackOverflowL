@@ -18,4 +18,18 @@ class Party():
     }))         
 
    
-    
+     #get all parties
+    @p_v1.route('/parties', methods=['GET'])
+    def get_parties():
+        parties = []
+        parties = PartyModels().get_all_parties()
+
+        if parties:
+            return jsonify({
+                "msg" : "success",
+                "parties" : parties
+            })
+        return jsonify({
+            "msg" : "success",
+            "parties": parties
+        })
