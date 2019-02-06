@@ -26,14 +26,9 @@ class PartyModels():
                if party.get('party_id') == party_id:
                    return party
 
-    
-    def edit_party(self, name, hqAddress, logoUrl):
-        party_update = {
-            "party_id": len(self.db)+1,
-            "name": name,
-            "hqAddress": hqAddress,
-            "logoUrl": logoUrl,
-        }
-
-        self.db.update(party_update)
-        return party_update
+    def remove_party(self, party_id):
+        if self.db:
+           for party in self.db:
+               if party.get('party_id') == party_id:
+                   self.db.remove(party)
+                   return party
