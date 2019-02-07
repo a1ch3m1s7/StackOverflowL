@@ -1,5 +1,5 @@
 from flask import request, Blueprint, make_response, jsonify
-from app.api.v1.models.party_models import PartyModels
+from politico_API.app.api.v1.models.party_models import PartyModels
 import json
 p_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
@@ -11,7 +11,7 @@ def create_party():
     hqAddress = data['hqAddress']
     logoUrl = data['logoUrl']
 
-    response = PartyModels().create_party(name, hqAddress, logoUrl)
+    PartyModels().create_party(name, hqAddress, logoUrl)
 
     return make_response(jsonify({
         "msg": "party created succefully"
@@ -58,4 +58,13 @@ def delete_party(party_id):
         return jsonify({
             "msg" : "Could not delete the party "
         })
+
+@p_v1.route('/edit/<int:party_id>',methods=['PATCH'])
+def edit_party(party_id):
+    parties = request.get_json()
+    party = PartyModels().edit_party(parties)
+    return make_response(jsonify({
+        "message": "Success!! Party patched",
+        "data": party
+}))
 

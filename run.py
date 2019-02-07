@@ -1,4 +1,4 @@
-from app import politico_app
+from politico_API.app import politico_app
 
 app = politico_app()
 
