@@ -17,4 +17,5 @@ class officeModels():
         self.office_data.append(office)
         return self.office_data
 
-    
+    def get_all_offices(self):
+        return self.office_data

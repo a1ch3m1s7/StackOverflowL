@@ -16,3 +16,18 @@ def create_office():
         "msg": "office created succefully"
 }))         
 
+#get all offices
+@office.route('/offices', methods=['GET'])
+def get_offices():
+    offices = []
+    offices = officeModels().get_all_offices()
+
+    if offices:
+        return jsonify({
+            "msg" : "success",
+            "parties" : offices
+        })
+    return jsonify({
+        "msg" : "success",
+        "parties": offices
+    })
