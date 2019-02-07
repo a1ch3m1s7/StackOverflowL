@@ -31,3 +31,16 @@ def get_offices():
         "msg" : "success",
         "parties": offices
     })
+
+@office.route('/offices/<int:office_id>', methods=['GET'])
+def get_office_by_id(office_id):
+        office = officeModels().get_office_by_Id(office_id)
+
+        if office:
+            return jsonify({
+                "msg" : "success",
+                "party" : office
+            })
+        return jsonify({
+            "msg" : "404 error",
+        })

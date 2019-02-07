@@ -19,3 +19,9 @@ class officeModels():
 
     def get_all_offices(self):
         return self.office_data
+
+     def get_office_by_Id(self, office_id):
+       if self.office_data:
+           for office in self.office_data:
+               if office.get('office_id') == office_id:
+                   return office
