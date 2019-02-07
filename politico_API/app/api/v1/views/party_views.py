@@ -1,5 +1,5 @@
 from flask import request, Blueprint, make_response, jsonify
-from app.api.v1.models.parties.models import PartyModels
+from app.api.v1.models.party_models import PartyModels
 import json
 p_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
