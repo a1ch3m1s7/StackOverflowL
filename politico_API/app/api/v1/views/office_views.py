@@ -31,3 +31,29 @@ def get_offices():
         "msg" : "success",
         "parties": offices
     })
+
+@office.route('/offices/<int:office_id>', methods=['GET'])
+def get_office_by_id(office_id):
+        office = officeModels().get_office_by_Id(office_id)
+
+        if office:
+            return jsonify({
+                "msg" : "success",
+                "party" : office
+            })
+        return jsonify({
+            "msg" : "404 error",
+        })
+
+
+@office.route('/remove_office/<int:office_id>', methods=['DELETE'])
+def delete_office(office_id):
+        office = officeModels().remove_office(office_id)
+        if office:
+                return jsonify({
+                    "msg" : "successfully deleted",
+                    "parties" : office
+                })
+        return jsonify({
+            "msg" : "Could not delete the party "
+        })
