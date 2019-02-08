@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint
+from flask import Flask
 from app.api.v1.views.party_views import p_v1 as v1
 from app.api.v1.views.office_views import office as v2
 
