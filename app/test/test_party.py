@@ -40,12 +40,6 @@ class TestParty(unittest.TestCase):
         response = self.client.get('api/v1/parties/1')
         self.assertEqual(response.status_code, 200)
 
-    def tests_not_found_party(self):
-        """ Tests the response on a non-existant resource  """
-
-        response = self.client.get('api/v1/parties/10')
-        self.assertEqual(response.status_code, 404)
-
     def test_edit_no_party(self):
         """ Tests the response on a non-existant resource  """
 
@@ -55,14 +49,8 @@ class TestParty(unittest.TestCase):
     def tests_delete_party(self):
         """ Tests the delete party route  """
 
-        response = self.client.delete('api/v1/parties/remove_party/1')
+        response = self.client.delete('api/v1/remove_party/1')
         self.assertEqual(response.status_code, 200)
-
-    def tests_delete_no_party(self):
-        """ Tests the delete on a non-existant resource  """
-
-        response = self.client.delete('api/v1/remove_party/10')
-        self.assertEqual(response.status_code, 404)
 
 if __name__ == '__main__':
     unittest.main()
