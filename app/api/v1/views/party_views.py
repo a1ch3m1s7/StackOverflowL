@@ -1,6 +1,7 @@
 from flask import request, Blueprint, make_response, jsonify
-from politico_API.app.api.v1.models.party_models import PartyModels
+from app.api.v1.models.party_models import PartyModels
 import json
+
 p_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
 
@@ -11,11 +12,7 @@ def create_party():
     hqAddress = data['hqAddress']
     logoUrl = data['logoUrl']
 
-<<<<<<< HEAD:app/api/v1/views/party_views.py
     new_party = PartyModels().create_party(name, hqAddress, logoUrl)
-=======
-    PartyModels().create_party(name, hqAddress, logoUrl)
->>>>>>> 587fa98fc895523bb13b3ca8c9def9a00346bcb7:politico_API/app/api/v1/views/party_views.py
 
     return make_response(jsonify({
         "msg": "party created succefully",

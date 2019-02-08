@@ -23,4 +23,3 @@ This are the required endpoints...
 
 
 
->>>>>>> 587fa98fc895523bb13b3ca8c9def9a00346bcb7

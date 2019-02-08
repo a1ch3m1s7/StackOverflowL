@@ -1,5 +1,5 @@
 from flask import request, Blueprint, make_response, jsonify
-from politico_API.app.api.v1.models.office_models import officeModels
+from app.api.v1.models.office_models import officeModels
 import json
 office = Blueprint('v2', __name__, url_prefix='/api/v1/')
 
