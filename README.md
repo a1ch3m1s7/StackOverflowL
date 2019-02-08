@@ -21,16 +21,25 @@ This are the required endpoints...
 | ○ Get a specific political office.  |
 
 ## Required Features
-1. A user should be able to sign up to Politico 
-2. A user with an account should be able to log into Politico
-3. An administrator should be able to crete a political party in Politico
-4. A user with an account should be able to declare candidacy for specific post
-5. A user should be able to see election results
-6. A user should be able to get a specific politician profile
-7. A user should be able to get all parties record
-8. An admin should be able to delete a political party
-9. A user should be able to log out of Politico
-10. Admin should be able to edit a party information
+1. An administrator should be able to crete a political party in Politico
+2. An admin should be able to retrieve a particular office or party.
+2. An admin should be able to delete a political party and office
+3. Admin should be able to edit a party information
+
+## Endpoints
+
+Title | Endpoint | Method | Description
+--- | --- | --- | ---
+Create a party | /v1/parties | POST | An admin creates a party
+Get all party | /v1/parties | GET | Get get all parties
+Get specific party | /v1/parties/partyID | GET | Get a specific party
+Edit specific party | /v1/edit/partyID | PUT | Edit a specific party
+Delete specific party | /v1/remove_party/partyID | DELETE | Delete a specific party
+Create an office | /v1/offices | POST | An admin creates an office
+Get all offices | /v1/offices/ | GET | Get all offices
+Get specific office | /v1/parties/officeID | GET | Get a specific office
+Delete specific office | /v1/remove_office/officeID | GET | Get a specific office
+
 
 # Installation and Setup
 Clone the repository.
@@ -65,6 +74,40 @@ After the configuration, you will run the app
 export FLASK_APP=run.py
 flask run
 ```
+## Testing the app
+To test the app, run the following
+
+```
+pytest
+```
+
+## Usage
+
+I recommended using postman to send requests to the above detailed endpoints
+### Party Endpoints
+For this endpoint, minimum data required are as follows
+```
+{
+  "id": 1,
+  "name": "name of party",
+  "hqAddress": "headquarters",
+  "logoUrl": "imageUrl"
+  
+}
+```
+### Office Endpoints
+For this endpoint, minimum data required are as follows
+```
+{
+  "id": 1,
+  "type": "type of office",
+  "name": "name of the office"
+}
+```
+## Contributing
+Contributions are highly encouraged, please open an issue to discuss what you would like to change and with what.
+For the test please update them to your specific needs.
+
 
 
 
