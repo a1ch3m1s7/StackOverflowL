@@ -32,3 +32,17 @@ class PartyModels():
                if party.get('party_id') == party_id:
                    self.db.remove(party)
                    return party
+
+
+    
+
+    def edit_party(self, parties):
+        if self.db:
+            for party in self.db:
+                if party['party_id'] == parties:
+                    # return party
+                    party["party_id"] = parties["party_id"]
+                    party["name"] = parties["name"]
+                    party["hqAddress"] = parties["hqAddress"]
+                    party["logoUrl"] = parties["logoUrl"]
+                return parties

@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint
-from app.api.v1.views.party_views import p_v1 as v1
-from app.api.v1.views.office_views import office as v2
+from politico_API.app.api.v1.views.party_views import p_v1 as v1
+from politico_API.app.api.v1.views.office_views import office as v2
 
 def politico_app():
     app = Flask(__name__)
