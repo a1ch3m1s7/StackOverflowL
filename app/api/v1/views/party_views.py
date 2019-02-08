@@ -11,11 +11,12 @@ def create_party():
     hqAddress = data['hqAddress']
     logoUrl = data['logoUrl']
 
-    response = PartyModels().create_party(name, hqAddress, logoUrl)
+    new_party = PartyModels().create_party(name, hqAddress, logoUrl)
 
     return make_response(jsonify({
-        "msg": "party created succefully"
-}))         
+        "msg": "party created succefully",
+        "party" : new_party
+}), 201)         
 
 
     #get all parties
@@ -25,10 +26,10 @@ def get_parties():
     parties = PartyModels().get_all_parties()
 
     if parties:
-        return jsonify({
-            "msg" : "success",
-            "parties" : parties
-        })
+            return jsonify({
+                "msg" : "success",
+                "parties" : parties
+            })
     return jsonify({
         "msg" : "success",
         "parties": parties
@@ -58,4 +59,13 @@ def delete_party(party_id):
         return jsonify({
             "msg" : "Could not delete the party "
         })
+
+@p_v1.route('/edit/<int:party_id>',methods=['PATCH'])
+def edit_party(party_id):
+    parties = request.get_json()
+    party = PartyModels().edit_party(parties)
+    return make_response(jsonify({
+        "message": "Success!! Party patched",
+        "data": party
+}))
 
