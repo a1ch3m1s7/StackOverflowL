@@ -11,7 +11,7 @@ class TestOffice(unittest.TestCase):
         self.app = politico_app() 
         self.client = self.app.test_client()
         self.data = {
-          "id": 1,
+          "id": "1",
           "type": "presidential",
           "name": "jubilee"
         }
@@ -27,7 +27,7 @@ class TestOffice(unittest.TestCase):
             data=json.dumps(self.data),
             content_type='application/json'
         )
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
 
     #
     def test_retrieve_all_offices(self):
@@ -42,11 +42,11 @@ class TestOffice(unittest.TestCase):
         response = self.client.get('api/v1/offices/1')
         self.assertEqual(response.status_code, 200)
 
-    def test_no_office(self):
-        """ Tests the response on a non-existant resource  """
+    def tests_delete_office(self):
+        """ Tests the delete party route  """
 
-        response = self.client.get('api/v1/offices/10')
-        self.assertEqual(response.status_code, 404)
+        response = self.client.delete('api/v1/remove_office/1')
+        self.assertEqual(response.status_code, 200)
 
     
     
