@@ -30,15 +30,15 @@ This are the required endpoints...
 
 Title | Endpoint | Method | Description
 --- | --- | --- | ---
-Create a party | /v1/parties | POST | An admin creates a party
-Get all party | /v1/parties | GET | Get get all parties
-Get specific party | /v1/parties/partyID | GET | Get a specific party
-Edit specific party | /v1/edit/partyID | PUT | Edit a specific party
-Delete specific party | /v1/remove_party/partyID | DELETE | Delete a specific party
-Create an office | /v1/offices | POST | An admin creates an office
-Get all offices | /v1/offices/ | GET | Get all offices
-Get specific office | /v1/parties/officeID | GET | Get a specific office
-Delete specific office | /v1/remove_office/officeID | GET | Get a specific office
+Create a party | /api/v1/parties | POST | An admin creates a party
+Get all party | /api/v1/parties | GET | Get get all parties
+Get specific party | /api/v1/parties/partyID | GET | Get a specific party
+Edit specific party | /api/v1/edit/partyID | PATCH | Edit a specific party
+Delete specific party | /api/v1/remove_party/partyID | DELETE | Delete a specific party
+Create an office | /api/v1/offices | POST | An admin creates an office
+Get all offices | /api/v1/offices/ | GET | Get all offices
+Get specific office | /api/v1/office/office_id | GET | Get a specific office
+Delete specific office | /api/v1/remove_office/<office_id> | DELETE | Get a specific office
 
 
 # Installation and Setup
@@ -104,6 +104,11 @@ For this endpoint, minimum data required are as follows
   "name": "name of the office"
 }
 ```
+
+## Heroku deployment site.
+For parties .https://a1ch3m1s7-politico.herokuapp.com/api/v1/parties.
+For offices .https://a1ch3m1s7-politico.herokuapp.com/api/v1/offices.
+
 ## Contributing
 Contributions are highly encouraged, please open an issue to discuss what you would like to change and with what.
 For the test please update them to your specific needs.
