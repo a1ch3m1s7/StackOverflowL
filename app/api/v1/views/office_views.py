@@ -32,11 +32,11 @@ def get_offices():
     if offices:
         return jsonify({
             "msg" : "success",
-            "parties" : offices
+            "offices" : offices
         })
     return jsonify({
         "msg" : "success",
-        "parties": offices
+        "offices": offices
     })
 
 @office.route('/offices/<int:office_id>', methods=['GET'])
@@ -48,7 +48,7 @@ def get_office_by_id(office_id):
     if offices:
         return jsonify({
             "msg" : "success",
-            "party" : offices
+            "offices" : offices
         })
     return jsonify({
         "msg" : "404 error",
@@ -63,7 +63,7 @@ def delete_office(office_id):
     if get_office:
         return jsonify({
             "msg" : "successfully deleted",
-            "parties" : get_office
+            "offices" : get_office
         })
     return jsonify({
         "msg" : "Could not delete the party "
