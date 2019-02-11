@@ -2,13 +2,13 @@ import json
 import unittest
 
 # Local imports
-from app import politico_app
+from app import create_app
 
 
 class TestOffice(unittest.TestCase):
 
     def setUp(self):
-        self.app = politico_app() 
+        self.app = create_app() 
         self.client = self.app.test_client()
         self.data = {
           "id": "1",

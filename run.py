@@ -1,7 +1,7 @@
 import os
-from app import politico_app
+from app import create_app
 
-app = politico_app()
+app = create_app()
 
 
 if __name__ == '__main__':

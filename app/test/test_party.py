@@ -1,11 +1,11 @@
 import unittest
 import json
-from app import politico_app
+from app import create_app
 
 
 class TestParty(unittest.TestCase):
     def setUp(self):
-        self.app = politico_app() 
+        self.app = create_app() 
         self.client = self.app.test_client()
         self.data = {
             "party_id" : 1,
