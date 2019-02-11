@@ -61,7 +61,7 @@ virtualenv venv
 ## Activate the virtual environment
 Before you begin you will need to activate the corresponding environment
 ```
-source venv/bin/activate
+source .env
 ```
 ## Install requirements
 ```
