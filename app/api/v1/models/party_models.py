@@ -2,47 +2,53 @@ parties = []
 
 class PartyModels():
 
-    def __init__(self):
+    @staticmethod
+    def exists(name):
+        """  """
+        for party in parties:
+            if party["name"] == name:
+                return True
+        return False
 
-        self.db = parties
 
     def create_party(self, name, hqAddress, logoUrl):
         party = {
-            "party_id": len(self.db)+1,
+            "party_id": len(parties)+1,
             "name": name,
             "hqAddress": hqAddress,
             "logoUrl": logoUrl,
         }
 
-        self.db.append(party)
+        parties.append(party)
         return party
 
     def get_all_parties(self):
-        return self.db
+        return parties
 
-    def get_party_by_Id(self, party_id):
-       if self.db:
-           for party in self.db:
+    def get_party_by_Id(self ,party_id):
+       if parties:
+           for party in parties:
                if party.get('party_id') == party_id:
                    return party
 
     def remove_party(self, party_id):
-        if self.db:
-           for party in self.db:
+        if parties:
+           for party in parties:
                if party.get('party_id') == party_id:
-                   self.db.remove(party)
+                   parties.remove(party)
                    return party
 
-
-    
-
-    def edit_party(self, parties):
-        if self.db:
-            for party in self.db:
-                if party['party_id'] == parties:
-                    # return party
-                    party["party_id"] = parties["party_id"]
-                    party["name"] = parties["name"]
-                    party["hqAddress"] = parties["hqAddress"]
-                    party["logoUrl"] = parties["logoUrl"]
-                return parties
+    def edit_party(self, parties, party_id):
+        """ edits parties """
+        for party in parties:
+                if party['party_id'] == party_id:
+                    name = parties.get('name')
+                    hqAddress = parties.get('hqAddress')
+                    logoUrl = parties.get('logoUrl')
+                    if name:
+                        party['name']  = name
+                    if hqAddress:
+                        party['hqAddress'] = hqAddress
+                    if logoUrl:
+                        party['logoUrl'] = logoUrl
+                    return party
