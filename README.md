@@ -57,6 +57,16 @@ If you need to install virtualenv:
 ```
 virtualenv venv
 ```
+## Creating an env file
+create a ```.env``` file and insert the following code
+
+```
+source venv/bin/activate
+export FLASK_APP="run.py"
+export FLASK_ENV="development"
+export APP_SETTIINGS="development"
+
+```
 
 ## Activate the virtual environment
 Before you begin you will need to activate the corresponding environment

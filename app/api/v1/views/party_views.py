@@ -1,5 +1,7 @@
 from flask import request, Blueprint, make_response, jsonify
 from app.api.v1.models.party_models import PartyModels
+from app.utils.validators import validate
+from app.utils.returnMessages import success, error
 import json
 
 p_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
@@ -7,17 +9,8 @@ p_v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 
 @p_v1.route('/parties', methods=['POST'])
 def create_party():
-    data = request.get_json()
-    name = data['name']
-    hqAddress = data['hqAddress']
-    logoUrl = data['logoUrl']
-
-    new_party = PartyModels().create_party(name, hqAddress, logoUrl)
-
-    return make_response(jsonify({
-        "msg": "party created succefully",
-        "party" : new_party
-}), 201)         
+    response = validate().check_party_if_exist()
+    return response         
 
 
     #get all parties
@@ -64,7 +57,7 @@ def delete_party(party_id):
 @p_v1.route('/edit/<int:party_id>',methods=['PATCH'])
 def edit_party(party_id):
     parties = request.get_json()
-    party = PartyModels().edit_party(parties)
+    party = PartyModels().edit_party(parties, party_id)
     return make_response(jsonify({
         "message": "Success!! Party patched",
         "data": party
