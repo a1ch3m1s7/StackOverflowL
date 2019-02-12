@@ -81,7 +81,6 @@ pip install -r requirements.txt
 ## Running the application
 After the configuration, you will run the app 
 ```
-export FLASK_APP=run.py
 flask run
 ```
 ## Testing the app
