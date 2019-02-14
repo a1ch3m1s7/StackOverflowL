@@ -33,12 +33,12 @@ Title | Endpoint | Method | Description
 Create a party | /api/v1/parties | POST | An admin creates a party
 Get all party | /api/v1/parties | GET | Get get all parties
 Get specific party | /api/v1/parties/partyID | GET | Get a specific party
-Edit specific party | /api/v1/edit/partyID | PATCH | Edit a specific party
-Delete specific party | /api/v1/remove_party/partyID | DELETE | Delete a specific party
+Edit specific party | /api/v1/parties/edit/partyID | PATCH | Edit a specific party
+Delete specific party | /api/v1/parties/remove_party/partyID | DELETE | Delete a specific party
 Create an office | /api/v1/offices | POST | An admin creates an office
 Get all offices | /api/v1/offices/ | GET | Get all offices
 Get specific office | /api/v1/office/office_id | GET | Get a specific office
-Delete specific office | /api/v1/remove_office/<office_id> | DELETE | Get a specific office
+Delete specific office | /api/v1/offices/remove_office/office_id | DELETE | Get a specific office
 
 
 # Installation and Setup

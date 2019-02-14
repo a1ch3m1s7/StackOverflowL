@@ -11,7 +11,6 @@ class TestOffice(unittest.TestCase):
         self.app = create_app() 
         self.client = self.app.test_client()
         self.data = {
-          "id": "1",
           "type": "presidential",
           "name": "jubilee"
         }
@@ -45,7 +44,7 @@ class TestOffice(unittest.TestCase):
     def tests_delete_office(self):
         """ Tests the delete party route  """
 
-        response = self.client.delete('api/v1/remove_office/1')
+        response = self.client.delete('api/v1/offices/remove_office/1')
         self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
