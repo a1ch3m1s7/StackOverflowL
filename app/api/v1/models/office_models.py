@@ -1,3 +1,4 @@
+import json
 offices = []
 
 class officeModels():
@@ -6,16 +7,27 @@ class officeModels():
 
         self.office_data = offices
 
-    def create_office(self, data_id, N_type, name):
+    def create_office(self, N_type, name):
         office = {
             "office_id": len(self.office_data)+1,
-            "id" : data_id,
             "type" : N_type,
-            "name": name,
+            "name": name
         }
 
         self.office_data.append(office)
-        return self.office_data
+        return office
+
+    def get_type(self, N_type):
+        """Get a party with a specific name."""
+        for office in self.office_data:
+            if office['type'] == N_type:
+                return json.dumps(office, default=str)
+
+    def get_name(self, name):
+        """Get party by hqAddress."""
+        for office in self.office_data:
+            if office['name'] == name:
+                return json.dumps(office, default=str)
 
     def get_all_offices(self):
         return self.office_data

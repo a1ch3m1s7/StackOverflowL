@@ -1,31 +1,37 @@
+
+""" imports """
 from app.api.v1.models.party_models import PartyModels
 import json
-from flask import make_response, jsonify, request
+import re
+from app.utils.returnMessages import success, error
 
 
 class validate:
+    
+    def check_keys(self, request):
+        """Check if the key values are correct."""
+        input_keys = ['name', 'hqAddress', 'logoUrl']
+        invalid = []
+        for key in input_keys:
+            if not key in request.json:
+                invalid.append(key)
 
-    @classmethod
-    def check_party_if_exist(cls):
-        data = request.get_json()
-        name = data['name']
-        hqAddress = data['hqAddress']
-        logoUrl = data['logoUrl']
+        return invalid
 
-        if not PartyModels().exists(name):
 
-            new_party = PartyModels().create_party(name, hqAddress, logoUrl)
-            return make_response(jsonify({
-                "msg": "party created succefully",
-                "party" : new_party
-                }), 201)
-        else:
-            return make_response(jsonify({
-                "valid": True,
-                "data": {
-                    "status": 409,
-                    "error": "Conflict. Party already exists"
-                }
-            }))
+    def valid_email(self, var):
+        """Check if email is a valid mail."""
 
-  
+        if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[a-zA-Z0-9-.]+$)",var):
+            return True
+        return False
+
+    def valid_url(self, var):
+        """Check if email is valid."""
+
+        if re.match(r"https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)", var):
+            return True
+        return False
+
+
+    

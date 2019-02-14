@@ -1,26 +1,33 @@
 """ third party imports """
-
 from flask import request, Blueprint, make_response, jsonify
-from app.api.v1.models.office_models import officeModels
 import json
+
+""" local imports """
+from app.api.v1.models.office_models import officeModels
+from app.utils.returnMessages import success, error, more_data_fields, few_data_fields,data_already_exists, id_is_zero, id_out_of_range,invalid_data, empty_data_field
+
 office = Blueprint('v2', __name__, url_prefix='/api/v1/')
 
 offices = []
 
 @office.route('/offices', methods=['POST'])
-def create_office():
-    """ This route enables the admin to create an office """
+def check_party_if_exist():
     data = request.get_json()
-    data_id = data['id']
     N_type  = data['type']
     name = data['name']
 
-    officeModels().create_office(data_id, N_type, name)
+    if len(data) > 2:
+        return more_data_fields()
+    elif len(data) < 2:
+        return few_data_fields()
+    elif officeModels().get_type(N_type) or officeModels().get_name(name):
+        return data_already_exists("Error : Party already exists")
 
-    return make_response(jsonify({
-        "msg": "office created succefully"
-}), 200)         
-
+    elif data['name'].isalpha() is False or data['type'].isalpha() is False:
+        return invalid_data()
+    else:
+        res = officeModels().create_office(name, N_type)
+        return success(200, res) 
 
 #get all offices
 @office.route('/offices', methods=['GET'])
@@ -30,14 +37,9 @@ def get_offices():
 
     offices = officeModels().get_all_offices()
     if offices:
-        return jsonify({
-            "msg" : "success",
-            "offices" : offices
-        })
-    return jsonify({
-        "msg" : "success",
-        "offices": offices
-    })
+        return success(200, offices)
+    return error(404, "Office doesn't exists")
+    
 
 @office.route('/offices/<int:office_id>', methods=['GET'])
 def get_office_by_id(office_id):
@@ -55,7 +57,7 @@ def get_office_by_id(office_id):
     })
 
 
-@office.route('/remove_office/<int:office_id>', methods=['DELETE'])
+@office.route('/offices/remove_office/<int:office_id>', methods=['DELETE'])
 def delete_office(office_id):
     """ This route enables the admin to delete party  """
 
@@ -68,3 +70,5 @@ def delete_office(office_id):
     return jsonify({
         "msg" : "Could not delete the party "
     })
+
+
