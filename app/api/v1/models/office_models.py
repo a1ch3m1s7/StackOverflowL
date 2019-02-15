@@ -24,7 +24,7 @@ class officeModels():
                 return json.dumps(office, default=str)
 
     def get_name(self, name):
-        """Get party by hqAddress."""
+        """Get party by name."""
         for office in self.office_data:
             if office['name'] == name:
                 return json.dumps(office, default=str)

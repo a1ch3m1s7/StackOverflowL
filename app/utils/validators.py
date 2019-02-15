@@ -8,23 +8,22 @@ from app.utils.returnMessages import success, error
 
 class validate:
     
-    def check_keys(self, request):
-        """Check if the key values are correct."""
+    """ def check_keys(self, request):
+        Check if the key values are correct.
         input_keys = ['name', 'hqAddress', 'logoUrl']
         invalid = []
         for key in input_keys:
             if not key in request.json:
                 invalid.append(key)
-
-        return invalid
-
+                return invalid"""
 
     def valid_email(self, var):
-        """Check if email is a valid mail."""
+        """ Check if email is a valid mail. """
 
         if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[a-zA-Z0-9-.]+$)",var):
             return True
-        return False
+        return False 
+
 
     def valid_url(self, var):
         """Check if email is valid."""

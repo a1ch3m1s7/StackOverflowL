@@ -12,23 +12,25 @@ offices = []
 
 @office.route('/offices', methods=['POST'])
 def check_party_if_exist():
-    data = request.get_json()
-    N_type  = data['type']
-    name = data['name']
+    try:
+        data = request.get_json()
+        N_type  = data['type']
+        name = data['name']
 
-    if len(data) > 2:
-        return more_data_fields()
-    elif len(data) < 2:
-        return few_data_fields()
-    elif officeModels().get_type(N_type) or officeModels().get_name(name):
-        return data_already_exists("Error : Party already exists")
-
-    elif data['name'].isalpha() is False or data['type'].isalpha() is False:
-        return invalid_data()
-    else:
-        res = officeModels().create_office(name, N_type)
-        return success(200, res) 
-
+        if len(data) > 2:
+            return more_data_fields()
+        elif len(data) < 2:
+            return few_data_fields()
+        elif officeModels().get_type(N_type) or officeModels().get_name(name):
+            return data_already_exists("Error : office already exists")
+        elif data['name'].isalpha() is False or data['type'].isalpha() is False:
+            return invalid_data()
+        else:
+            res = officeModels().create_office(name, N_type)
+            return success(200, res) 
+    except(TypeError, KeyError, ValueError):
+        res =jsonify({"message": "missing parameters"})
+        return res
 #get all offices
 @office.route('/offices', methods=['GET'])
 def get_offices():

@@ -10,26 +10,30 @@ parties = []
 
 @p_v1.route('/parties', methods=['POST'])
 def check_party_if_exist():
-    data = request.get_json()
-    name = data['name']
-    hqAddress = data['hqAddress']
-    logoUrl = data['logoUrl']
+    try:
+        data = request.get_json()
+        name = data['name']
+        hqAddress = data['hqAddress']
+        logoUrl = data['logoUrl']
 
-    if len(data) > 3:
-        return more_data_fields()
-    if len(data) < 3:
-        return few_data_fields()
-    elif PartyModels().get_name(name) or PartyModels().get_hqAddress(hqAddress) or PartyModels().get_logoUrl(logoUrl):
-        return data_already_exists("Error : Party already exists")
+        if len(data) > 3:
+            return more_data_fields()
+        if len(data) < 3:
+            return few_data_fields()
+        elif PartyModels().get_name(name) or PartyModels().get_hqAddress(hqAddress) or PartyModels().get_logoUrl(logoUrl):
+            return data_already_exists("Error : Party already exists")
 
-    elif not validate().valid_url(logoUrl):
-        return invalid_data()
+        elif not validate().valid_url(logoUrl):
+            return empty_data_field()
 
-    elif data['name'].isalpha() is False or data['hqAddress'].isalpha() is False:
-        return invalid_data()
-    else:
-        res = PartyModels().create_party(name, hqAddress, logoUrl)
-        return success(200, res)      
+        elif data['name'].isalpha() is False or data['hqAddress'].isalpha() is False:
+            return invalid_data()
+        else:
+            res = PartyModels().create_party(name, hqAddress, logoUrl)
+            return success(201, res) 
+    except(ValueError, KeyError, TypeError):
+        res =jsonify({"message": "missing parameters"})
+        return res
 
 
     #get all parties
